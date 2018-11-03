@@ -1,7 +1,10 @@
 var gulp = require("gulp");
 var sass = require("gulp-sass");
-let watch = require("gulp-watch-sass");
-let rename = require("gulp-rename");
+var watch = require("gulp-watch-sass");
+var rename = require("gulp-rename");
+var inject = require("gulp-inject");
+
+// sass: Compile CSS
 
 gulp.task("sass", function() {
   return gulp
@@ -15,9 +18,24 @@ gulp.task("sass", function() {
     );
 });
 
-gulp.task("watch", function() {
-  console.log("working");
-  gulp.watch("./src/*.scss", ["sass"]);
+// watch: Watch Sass files
+
+gulp.task('watch', function() {
+  gulp.watch('./src/*.scss', ['sass']);
 });
 
-gulp.task("default", []);
+// inject-css: Inject CSS into main.html
+
+gulp.task('inject-css', function() {
+  var target = gulp.src('./src/main.html');
+  .pipe(inject(gulp.src(['./src/*.css']), {
+    starttag: '<!-- inject:head:{{ext}} -->',
+    transform: function (filePath, file) {
+      let css = ['<style>', file.contents.toString('utf8'), '</style>']
+      return css.join('\n');
+    }
+  }))
+  .pipe(gulp.dest('./public'));
+});
+
+gulp.task('default', ['sass', 'inject-css']);
