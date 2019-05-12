@@ -1,4 +1,8 @@
+// Tumblr default classes
+
 .index-page {
+  color: "{TitleFont}";
+  background-color: greenyellow;
 }
 
 .sidebar {
@@ -16,12 +20,11 @@
 }
 
 #posts {
-}
-
-.post {
-  .text {
-  }
-  .photo {
+  .post {
+    .text {
+    }
+    .photo {
+    }
   }
 }
 
@@ -35,4 +38,12 @@
 }
 
 .post-info {
+}
+
+// Custom classes
+
+.header {
+}
+
+.footer {
 }

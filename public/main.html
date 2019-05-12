@@ -8,7 +8,8 @@
   <link rel="shortcut icon" href="{Favicon}">
   <link rel="apple-touch-icon" href="{PortraitURL-128}">
   <link rel="alternate" type="application/rss+xml" href="{RSS}">
-  <meta name="description" content="{MetaDescription}">
+  {block:Description}
+  <meta name="description" content="{MetaDescription}">{/block:Description}
   <!-- DEFAULTS -->
   <meta name="color:Background" content="{BackgroundColor}" />
   <meta name="color:Title" content="{TitleColor}" />
@@ -20,7 +21,12 @@
   <meta name="color:AvatarShape" content="{AvatarShape}" />
   <!-- Pre-compiled CSS starts here -->
   <!-- inject:head:css -->
-  <!-- CSS will be injected here -->
+  <style type="text/css">
+    .index-page {
+      color:"{TitleFont}";
+      background-color: #adff2f
+    }
+  </style>
   <!-- endinject -->
   <!-- Custom CSS starts here -->
   {CustomCSS}
