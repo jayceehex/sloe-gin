@@ -34,14 +34,7 @@
   <!-- Header -->
 
   <header class="header">
-    {block:ShowAvatar}
-    <a href="/">
-      <img class="avatar" id="avatar" src="{PortraitURL-128}" alt="" />
-    </a>
-    {/block:ShowAvatar}
-    {block:Description}
-    <p id="description">{Description}</p>
-    {/block:Description}
+
   </header>
 
   <!-- Posts -->
@@ -129,7 +122,20 @@
   <!-- Sidebar -->
 
   <section class="sidebar">
-
+    <h1><a href="/">{Title}</a></h1>
+    {block:ShowAvatar}
+    <a href="/">
+      <img class="my-avatar" id="avatar" src="{PortraitURL-128}" alt="Avatar" />
+    </a>
+    {/block:ShowAvatar}
+    {block:Description}
+    <p id="description">{Description}</p>
+    {/block:Description}
+    {block:HasPages}
+    <ul>
+      {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+    </ul>
+    {/block:HasPages}
   </section>
 
   <!-- Footer -->
