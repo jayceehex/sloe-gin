@@ -8,8 +8,7 @@
   <link rel="shortcut icon" href="{Favicon}">
   <link rel="apple-touch-icon" href="{PortraitURL-128}">
   <link rel="alternate" type="application/rss+xml" href="{RSS}">
-  {block:Description}
-  <meta name="description" content="{MetaDescription}">{/block:Description}
+  <meta name="description" content="{MetaDescription}">
   <!-- DEFAULTS -->
   <meta name="color:Background" content="{BackgroundColor}" />
   <meta name="color:Title" content="{TitleColor}" />
@@ -22,11 +21,8 @@
   <!-- Pre-compiled CSS starts here -->
   <!-- inject:head:css -->
   <style type="text/css">
-    .index-page {
-      color:"{TitleFont}";
-      background-color: #adff2f
-    }
-  </style>
+.index-page{color:"{TitleFont}";background-color:#adff2f;border:20px red solid}
+</style>
   <!-- endinject -->
   <!-- Custom CSS starts here -->
   {CustomCSS}
@@ -42,7 +38,7 @@
   <header class="header">
     {block:ShowAvatar}
     <a href="/">
-      <img class="" src="{PortraitURL-128}" alt="" />
+      <img class="avatar" id="avatar" src="{PortraitURL-128}" alt="" />
     </a>
     {/block:ShowAvatar}
     {block:Description}

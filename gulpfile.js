@@ -1,27 +1,42 @@
-let gulp = require("gulp")
-let rename = require("gulp-rename")
-let inject = require("gulp-inject")
-let cleanCSS = require("gulp-clean-css")
-var runSequence = require("run-sequence")
+'use strict'
+
+let gulp = require('gulp')
+let sass = require('gulp-sass')
+let rename = require('gulp-rename')
+let inject = require('gulp-inject')
+let cleanCSS = require('gulp-clean-css')
+var runSequence = require('run-sequence')
+
+sass.compiler = require('node-sass')
+
+// sass: Compile Sass
+gulp.task('sass', function () {
+  return gulp.src('./src/**/*.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./src'));
+});
+
+// sass:watch: Watch for Sass changes
+gulp.task('sass:watch', function () {
+  gulp.watch('./src/**/*.scss', ['sass']);
+});
 
 // minify-css: Minify CSS
-
-gulp.task("minify-css", function() {
+gulp.task('minify-css', function() {
   return gulp
-    .src("./src/*.css")
-    .pipe(cleanCSS({ compatibility: "ie8" }))
-    .pipe(gulp.dest("./src/"))
+    .src('./src/*.css')
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
+    .pipe(gulp.dest('./src/'))
     .pipe(
       rename(function(path) {
-        path.basename += ".min"
+        path.basename += '.min'
       })
     )
 })
 
 // inject-css: Inject CSS into main.html
-
 gulp.task("inject-css", function() {
-  gulp
+  return gulp
     .src("./src/main.html")
     .pipe(
       inject(gulp.src(["./src/*.css"]), {
@@ -39,8 +54,5 @@ gulp.task("inject-css", function() {
     .pipe(gulp.dest("./public"))
 })
 
-// default: Minify CSS then inject minified CSS into head of main.html in sequence
-
-gulp.task("default", function() {
-  runSequence("minify-css", "inject-css")
-})
+// inject-compiled: Compile Sass, Minify CSS then inject minified CSS into head of main.html in sequence
+gulp.task("inject-compiled", gulp.series('sass', "minify-css", "inject-css"));
