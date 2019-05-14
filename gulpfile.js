@@ -5,7 +5,6 @@ let sass = require('gulp-sass')
 let rename = require('gulp-rename')
 let inject = require('gulp-inject')
 let cleanCSS = require('gulp-clean-css')
-var runSequence = require('run-sequence')
 
 sass.compiler = require('node-sass')
 

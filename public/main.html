@@ -21,7 +21,7 @@
   <!-- Pre-compiled CSS starts here -->
   <!-- inject:head:css -->
   <style type="text/css">
-.index-page{color:"{TitleFont}";background-color:#adff2f;border:20px red solid}
+.index-page{background-color:"{BackgroundColor}"}
 </style>
   <!-- endinject -->
   <!-- Custom CSS starts here -->
@@ -34,17 +34,9 @@
 <body class="index-page">
 
   <!-- Header -->
-
-  <header class="header">
-    {block:ShowAvatar}
-    <a href="/">
-      <img class="avatar" id="avatar" src="{PortraitURL-128}" alt="" />
-    </a>
-    {/block:ShowAvatar}
-    {block:Description}
-    <p id="description">{Description}</p>
-    {/block:Description}
-  </header>
+  {block:ShowHeaderImage}
+  <header class="header"></header>
+  {/block:ShowHeaderImage}
 
   <!-- Posts -->
 
@@ -53,9 +45,9 @@
       {block:Posts}
       {block:Text}
       <li class="post text">
-        {block:Title}
-        <h3><a href="{Permalink}">{Title}</a></h3>
-        {/block:Title}{Body}
+        {block:PostTitle}
+        <h2><a href="{Permalink}">{PostTitle}</a></h2>
+        {/block:PostTitle}{Body}
       </li>
       {/block:Text}{block:Photo}
       <li class="post photo">
@@ -97,9 +89,9 @@
       </li>
       {/block:Link}{block:Chat}
       <li class="post chat">
-        {block:Title}
-        <h3><a href="{Permalink}">{Title}</a></h3>
-        {/block:Title}
+        {block:PostTitle}
+        <h2><a href="{Permalink}">{Title}</a></h2>
+        {/block:PostTitle}
 
         <ul class="chat">
           {block:Lines}
@@ -131,17 +123,40 @@
   <!-- Sidebar -->
 
   <section class="sidebar">
-
+    {block:ShowAvatar}
+    <a href="/"><img class="my-avatar" id="avatar" src="{PortraitURL-128}" alt="Avatar" /></a>
+    {/block:ShowAvatar}
+    {block:ShowTitle}
+    <h1><a href="/">{Title}</a></h1>
+    {/block:ShowTitle}
+    {block:ShowDescription}
+    <p id="description">{Description}</p>
+    {/block:ShowDescription}
+    {block:HasPages}
+    <ul>
+      {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+    </ul>
+    {/block:HasPages}
   </section>
 
   <!-- Footer -->
 
   <footer class="footer">
-    {block:PreviousPage}
-    <a href="{PreviousPage}" class="button">&#171; Previous</a>
-    {/block:PreviousPage}{block:NextPage}
-    <a href="{NextPage}" class="button">Next &#187;</a>
-    {/block:NextPage}
+    {block:Pagination}
+    <nav class="pagination">
+      <ul>
+        {block:PreviousPage}
+        <li>
+          <a href="{PreviousPage}" class="button">&#171; Previous</a>
+        </li>
+        {/block:PreviousPage}{block:NextPage}
+        <li>
+          <a href="{NextPage}" class="button">Next &#187;</a>
+        </li>
+        {/block:NextPage}
+      </ul>
+    </nav>
+    {/block:Pagination}
     <a href="/archive" class="button">Archive</a>
     <span>&copy; {CopyrightYears}</span>
   </footer>

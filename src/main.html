@@ -33,8 +33,7 @@
 
   <!-- Header -->
   {block:ShowHeaderImage}
-  <header class="header">
-  </header>
+  <header class="header"></header>
   {/block:ShowHeaderImage}
 
   <!-- Posts -->
@@ -45,7 +44,7 @@
       {block:Text}
       <li class="post text">
         {block:PostTitle}
-        <h3><a href="{Permalink}">{PostTitle}</a></h3>
+        <h2><a href="{Permalink}">{PostTitle}</a></h2>
         {/block:PostTitle}{Body}
       </li>
       {/block:Text}{block:Photo}
@@ -88,9 +87,9 @@
       </li>
       {/block:Link}{block:Chat}
       <li class="post chat">
-        {block:Title}
-        <h3><a href="{Permalink}">{Title}</a></h3>
-        {/block:Title}
+        {block:PostTitle}
+        <h2><a href="{Permalink}">{Title}</a></h2>
+        {/block:PostTitle}
 
         <ul class="chat">
           {block:Lines}
@@ -122,14 +121,12 @@
   <!-- Sidebar -->
 
   <section class="sidebar">
+    {block:ShowAvatar}
+    <a href="/"><img class="my-avatar" id="avatar" src="{PortraitURL-128}" alt="Avatar" /></a>
+    {/block:ShowAvatar}
     {block:ShowTitle}
     <h1><a href="/">{Title}</a></h1>
     {/block:ShowTitle}
-    {block:ShowAvatar}
-    <a href="/">
-      <img class="my-avatar" id="avatar" src="{PortraitURL-128}" alt="Avatar" />
-    </a>
-    {/block:ShowAvatar}
     {block:ShowDescription}
     <p id="description">{Description}</p>
     {/block:ShowDescription}
