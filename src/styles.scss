@@ -1,9 +1,5 @@
-// Variables
-
 @import 'variables';
 @import 'modern-css-reset';
-
-// Basic styling
 
 body {
   background-color: $background-color;
@@ -11,8 +7,7 @@ body {
 }
 
 main {
-  max-width: 38rem;
-  margin: auto;
+	max-width: 38rem;
 }
 
 a {
@@ -32,14 +27,19 @@ a {
   }
 }
 
+blockquote {
+	padding: 0px 0px 0px $inline-padding-y;
+	border-left: 2px dashed $background-color-light;
+}
+
 .container {
 	display: flex;
 	align-items: flex-start;
 	padding: 1.5rem;
-	@media only screen and (max-width: 768px) {
+	@media only screen and (max-width: 1024px) {
 		flex-direction: column;
 		align-items: stretch;
-		padding: 1.5rem 0rem;
+		padding: 1.5rem 0.5rem;
 	}
 }
 
@@ -47,7 +47,6 @@ a {
 
 .sidebar {
 	padding: $post-padding-y $post-padding-x;
-	border-radius: 5px;
 	border: 2px solid $background-color-light;
   .my-avatar {
   }
@@ -65,15 +64,17 @@ a {
 	list-style: none;
 	margin-block: 0px;
 	padding-inline: 0px;
+	margin: 0px 0px 0px $post-padding-x;
+	@media only screen and (max-width: 1024px) {
+		margin: 0px;
+	}
   .post {
+		max-width: 100%;
 		margin: 0px;
 		padding: $post-padding-y $post-padding-x;
 		border: 2px solid $background-color-light;
 		&+ .tags {
 			margin: 0px 0px $post-padding-y 0px;
-			@media only screen and (max-width: 768px) {
-				margin: 0px 0px $post-padding-y 0px;
-			}
 		}
 		&+ .post {
 			margin: $post-padding-y 0px 0px 0px;
@@ -92,10 +93,8 @@ a {
 		margin: 0px;
 		padding: $post-padding-y $post-padding-x;
 		background: $background-color-light;
-		&+ .post {
-			margin: 0px;
-		}
 		.tags__list {
+			font-size: 1.5em;
 			display: flex;
 			align-items: flex-start;
 			align-content: flex-start;
