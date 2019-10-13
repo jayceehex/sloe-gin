@@ -23,7 +23,9 @@
   <!-- CSS will be injected here -->
   <!-- endinject -->
   <!-- Custom CSS starts here -->
-  {CustomCSS}
+  <style type="text/css">
+    {CustomCSS}
+  </style>
   <!-- Custom CSS ends -->
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{Title}</title>
@@ -36,106 +38,135 @@
   <header class="header"></header>
   {/block:ShowHeaderImage}
 
-  <!-- Posts -->
-
-  <main class="main">
-    <ol id="posts">
-      {block:Posts}
-      {block:Text}
-      <li class="post text">
-        {block:PostTitle}
-        <h2><a href="{Permalink}">{PostTitle}</a></h2>
-        {/block:PostTitle}{Body}
-      </li>
-      {/block:Text}{block:Photo}
-      <li class="post photo">
-        <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
-
-        {block:Caption}
-        <div class="caption">{Caption}</div>
-        {/block:Caption}
-      </li>
-      {/block:Photo}{block:Panorama}
-      <li class="post panorama">
-        {LinkOpenTag}
-        <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
-        {LinkCloseTag}{block:Caption}
-        <div class="caption">{Caption}</div>
-        {/block:Caption}
-      </li>
-      {/block:Panorama}{block:Photoset}
-      <li class="post photoset">
-        {Photoset-500}{block:Caption}
-        <div class="caption">{Caption}</div>
-        {/block:Caption}
-      </li>
-      {/block:Photoset}{block:Quote}
-      <li class="post quote">
-        "{Quote}"
-
-        {block:Source}
-        <div class="source">{Source}</div>
-        {/block:Source}
-      </li>
-      {/block:Quote}{block:Link}
-      <li class="post link">
-        <a href="{URL}" class="link" {Target}>{Name}</a>
-
-        {block:Description}
-        <div class="description">{Description}</div>
-        {/block:Description}
-      </li>
-      {/block:Link}{block:Chat}
-      <li class="post chat">
-        {block:PostTitle}
-        <h2><a href="{Permalink}">{Title}</a></h2>
-        {/block:PostTitle}
-
-        <ul class="chat">
-          {block:Lines}
-          <li class="{Alt} user_{UserNumber}">
-            {block:Label}
-            <span class="label">{Label}</span>
-            {/block:Label}{Line}
-          </li>
-          {/block:Lines}
-        </ul>
-      </li>
-      {/block:Chat}{block:Video}
-      <li class="post video">
-        {Video-500}{block:Caption}
-        <div class="caption">{Caption}</div>
-        {/block:Caption}
-      </li>
-      {/block:Video}{block:Audio}
-      <li class="post audio">
-        {AudioEmbed}{block:Caption}
-        <div class="caption">{Caption}</div>
-        {/block:Caption}
-      </li>
-      {/block:Audio}
-      {/block:Posts}
-    </ol>
-  </main>
+  <!-- Page matter -->
+  <div class="container">
 
   <!-- Sidebar -->
 
-  <section class="sidebar">
-    {block:ShowAvatar}
-    <a href="/"><img class="my-avatar" id="avatar" src="{PortraitURL-128}" alt="Avatar" /></a>
-    {/block:ShowAvatar}
-    {block:ShowTitle}
-    <h1><a href="/">{Title}</a></h1>
-    {/block:ShowTitle}
-    {block:ShowDescription}
-    <p id="description">{Description}</p>
-    {/block:ShowDescription}
-    {block:HasPages}
-    <ul>
-      {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
-    </ul>
-    {/block:HasPages}
-  </section>
+    <section class="sidebar">
+      {block:ShowAvatar}
+      <a href="/"><img class="my-avatar" id="avatar" src="{PortraitURL-128}" alt="Avatar" /></a>
+      {/block:ShowAvatar}
+      {block:ShowTitle}
+      <h1><a href="/">{Title}</a></h1>
+      {/block:ShowTitle}
+      {block:ShowDescription}
+      <p id="description">{Description}</p>
+      {/block:ShowDescription}
+      {block:HasPages}
+      <ul>
+        {block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+      </ul>
+      {/block:HasPages}
+    </section>
+
+    <!-- Posts -->
+
+    <main class="main">
+      <ol id="posts">
+        {block:Posts}
+        {block:Text}
+        <li class="post">
+          <div class="post__text">
+            {block:PostTitle}
+            <h2><a href="{Permalink}">{PostTitle}</a></h2>
+            {/block:PostTitle}{Body}
+          </div>
+        </li>
+        {/block:Text}{block:Photo}
+        <li class="post">
+          <div class="post__photo">
+            <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
+            {block:Caption}
+            <div class="post__caption">{Caption}</div>
+            {/block:Caption}
+          </div>
+        </li>
+        {/block:Photo}{block:Panorama}
+        <li class="post">
+          <div class="post__panorama">
+            {LinkOpenTag}
+            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
+            {LinkCloseTag}{block:Caption}
+            <div class="post__caption">{Caption}</div>
+            {/block:Caption}
+          </div>
+        </li>
+        {/block:Panorama}{block:Photoset}
+        <li class="post">
+          <div class="post__photoset">
+            {Photoset-500}{block:Caption}
+            <div class="post__caption">{Caption}</div>
+            {/block:Caption}
+          </div>
+        </li>
+        {/block:Photoset}{block:Quote}
+        <li class="post">
+          <div class="post__quote">
+            "{Quote}"
+            {block:Source}
+            <div class="source">{Source}</div>
+            {/block:Source}
+          </div>
+        </li>
+        {/block:Quote}{block:Link}
+        <li class="post">
+          <div class="post__link">
+            <a href="{URL}" class="link" {Target}>{Name}</a>
+            {block:Description}
+            <div class="post__description">{Description}</div>
+            {/block:Description}
+          </div>
+        </li>
+        {/block:Link}{block:Chat}
+        <li class="post">
+          <div class="post__chat">
+            {block:PostTitle}
+            <h2><a href="{Permalink}">{Title}</a></h2>
+            {/block:PostTitle}
+            <ul class="chat">
+              {block:Lines}
+              <li class="{Alt} user_{UserNumber}">
+                {block:Label}
+                <span class="label">{Label}</span>
+                {/block:Label}{Line}
+              </li>
+              {/block:Lines}
+            </ul>
+          </div>
+        </li>
+        {/block:Chat}{block:Video}
+        <li class="post">
+          <div class="post__video">
+            {Video-500}{block:Caption}
+            <div class="post__caption">{Caption}</div>
+            {/block:Caption}
+          </div>
+        </li>
+        {/block:Video}{block:Audio}
+        <li class="post">
+          <div class="post__audio">
+            {AudioEmbed}{block:Caption}
+            <div class="post__caption">{Caption}</div>
+            {/block:Caption}
+          </div>
+        </li>
+        {/block:Audio}
+        {block:HasTags}
+        <li class="tags">
+          <ul class="tags__list">
+            {block:Tags}
+            <li class="tags__tag">
+              <a href="{TagURL}">#{Tag}</a>
+            </li>
+            {/block:Tags}
+          </ul>
+        </li>
+        {/block:HasTags}
+        {/block:Posts}
+      </ol>
+    </main>
+  </div>
 
   <!-- Footer -->
 
@@ -145,17 +176,17 @@
       <ul>
         {block:PreviousPage}
         <li>
-          <a href="{PreviousPage}" class="button">&#171; Previous</a>
+          <a href="{PreviousPage}" title="Previous page" class="">&#171;</a>
         </li>
         {/block:PreviousPage}{block:NextPage}
         <li>
-          <a href="{NextPage}" class="button">Next &#187;</a>
+          <a href="{NextPage}" title="Next page" class="">&#187;</a>
         </li>
         {/block:NextPage}
       </ul>
     </nav>
     {/block:Pagination}
-    <a href="/archive" class="button">Archive</a>
+    <a href="/archive" class="">Archive</a>
     <span>&copy; {CopyrightYears}</span>
   </footer>
 

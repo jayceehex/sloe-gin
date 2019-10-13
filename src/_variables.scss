@@ -1,0 +1,24 @@
+// Uncomment in production:
+// $background-color: "{BackgroundColor}";
+// $accent-color: "{AccentColor}";
+// $title-font: "{TitleFont}";
+// $title-font-weight: "{TitleFontWeight}";
+// $title-color: "{TitleColor}";
+// $header-image: "{HeaderImage}";
+// $avatar-shape: "{AvatarShape}";
+
+$background-color: #333;
+$accent-color: #00acc1;
+$title-font: "{TitleFont}";
+$title-font-weight: "{TitleFontWeight}";
+$title-color: #FFF;
+$header-image: "{HeaderImage}";
+$avatar-shape: "{AvatarShape}";
+$text-color: #FFF;
+
+$post-padding-x: 2em;
+$post-padding-y: 1em;
+$inline-padding-x: 0.5em;
+$inline-padding-y: 1em;
+$background-color-light: $background-color + 15;
+$background-color-dark: $background-color - 15;

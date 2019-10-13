@@ -1,10 +1,54 @@
-// Tumblr default classes
+// Variables
 
-.index-page {
-  background-color: "{BackgroundColor}";
+@import 'variables';
+@import 'modern-css-reset';
+
+// Basic styling
+
+body {
+  background-color: $background-color;
+  color: $text-color;
 }
 
+main {
+  max-width: 38rem;
+  margin: auto;
+}
+
+a {
+  color: $accent-color;
+  text-decoration: none;
+  border-bottom: 1px dashed;
+  &:hover {
+    border-bottom: 1px solid;
+    background-color: $accent-color;
+    color: $background-color;
+  }
+  &.button {
+    padding: $inline-padding-y $inline-padding-x;
+    text-decoration: none;
+    border-bottom: none;
+    border-radius: 10%;
+  }
+}
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	padding: 1.5rem;
+	@media only screen and (max-width: 768px) {
+		flex-direction: column;
+		align-items: stretch;
+		padding: 1.5rem 0rem;
+	}
+}
+
+.index-page {}
+
 .sidebar {
+	padding: $post-padding-y $post-padding-x;
+	border-radius: 5px;
+	border: 2px solid $background-color-light;
   .my-avatar {
   }
   .blog-title {
@@ -15,52 +59,74 @@
   }
 }
 
-.main {
-}
+.main {}
 
 #posts {
+	list-style: none;
+	margin-block: 0px;
+	padding-inline: 0px;
   .post {
-    .text {
-    }
-    .photo {
-    }
-    .photoset {
-      
-    }
-    .chat {
-
-    }
-    .audio {
-
-    }
-    .video {
-
-    }
-    .quote {
-
-    }
-  }
+		margin: 0px;
+		padding: $post-padding-y $post-padding-x;
+		border: 2px solid $background-color-light;
+		&+ .tags {
+			margin: 0px 0px $post-padding-y 0px;
+			@media only screen and (max-width: 768px) {
+				margin: 0px 0px $post-padding-y 0px;
+			}
+		}
+		&+ .post {
+			margin: $post-padding-y 0px 0px 0px;
+		}
+    .post__text {}
+    .post__photo {}
+    .post__photoset {}
+    .post__audio {}
+		.post__caption {}
+		.post__chat {}
+		.post__description {}
+    .post__video {}
+    .post__quote {}
+	}
+	.tags {
+		margin: 0px;
+		padding: $post-padding-y $post-padding-x;
+		background: $background-color-light;
+		&+ .post {
+			margin: 0px;
+		}
+		.tags__list {
+			display: flex;
+			align-items: flex-start;
+			align-content: flex-start;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			.tags__tag {
+				padding: 0px $inline-padding-x;
+			}
+		}
+	}
 }
-
-.post-meta {
-}
-
-.tags-list {
-}
-
-.tag {
-}
-
-.post-info {
-}
-
-// Custom classes
 
 .header {
+  display: block;
+  background: $background-color contain url($header-image);
 }
 
 .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .pagination {
+  font-size: 1.5em;
+  ul {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    li {
+      padding: $inline-padding-y $inline-padding-x;
+    }
+  }
 }
