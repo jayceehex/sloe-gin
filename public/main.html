@@ -21,7 +21,7 @@
   <!-- Pre-compiled CSS starts here -->
   <!-- inject:head:css -->
   <style type="text/css">
-*,::after,::before{box-sizing:border-box}ol[class],ul[class]{padding:0}blockquote,body,dd,dl,figcaption,figure,h1,h2,h3,h4,li,ol[class],p,ul[class]{margin:0}body{min-height:100vh;scroll-behavior:smooth;text-rendering:optimizeSpeed;line-height:1.5}ol[class],ul[class]{list-style:none}a:not([class]){text-decoration-skip-ink:auto}img{max-width:100%;display:block}article>*+*{margin-top:1em}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){*{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}body{background-color:#333;color:#fff}main{max-width:38rem}a{color:#00acc1;text-decoration:none;border-bottom:1px dashed}a:hover{border-bottom:1px solid;background-color:#00acc1;color:#333}a.button{padding:1em .5em;text-decoration:none;border-bottom:none;border-radius:10%}blockquote{padding:0 0 0 1em;border-left:2px dashed #424242}.container{display:flex;align-items:flex-start;padding:1.5rem}@media only screen and (max-width:1024px){.container{flex-direction:column;align-items:stretch;padding:1.5rem .5rem}}.sidebar{padding:1em 2em;border:2px solid #424242}#posts{list-style:none;margin-block:0;padding-inline:0;margin:0 0 0 2em}@media only screen and (max-width:1024px){#posts{margin:0}}#posts .post{max-width:100%;margin:0;padding:1em 2em;border:2px solid #424242}#posts .post+.tags{margin:0 0 1em 0}#posts .post+.post{margin:1em 0 0 0}#posts .tags{margin:0;padding:1em 2em;background:#424242}#posts .tags .tags__list{font-size:1.5em;display:flex;align-items:flex-start;align-content:flex-start;justify-content:flex-start;flex-wrap:wrap}#posts .tags .tags__list .tags__tag{padding:0 .5em}.header{display:block;background:#333 contain url({HeaderImage})}.footer{display:flex;flex-direction:column;align-items:center}.pagination{font-size:1.5em}.pagination ul{display:flex;justify-content:space-around;list-style:none}.pagination ul li{padding:1em .5em}
+*,::after,::before{box-sizing:border-box}ol[class],ul[class]{padding:0}blockquote,body,dd,dl,figcaption,figure,h1,h2,h3,h4,li,ol[class],p,ul[class]{margin:0}body{min-height:100vh;scroll-behavior:smooth;text-rendering:optimizeSpeed;line-height:1.5}ol[class],ul[class]{list-style:none}a:not([class]){text-decoration-skip-ink:auto}img{max-width:100%;display:block}article>*+*{margin-top:1em}button,input,select,textarea{font:inherit}@media (prefers-reduced-motion:reduce){*{animation-duration:0s!important;animation-iteration-count:1!important;transition-duration:0s!important;scroll-behavior:auto!important}}body{background-color:#333;color:#fff}main{max-width:38rem}a{color:#00acc1;text-decoration:none;border-bottom:1px dashed}a:hover{border-bottom:1px solid;background-color:#00acc1;color:#333}a.button{padding:1em .5em;text-decoration:none;border-bottom:none;border-radius:10%}blockquote{padding:0 0 0 1em;border-left:2px dashed #424242}.container{display:flex;align-items:flex-start;padding:1.5rem}@media only screen and (max-width:1024px){.container{flex-direction:column;align-items:stretch;padding:1.5rem .5rem}}.sidebar{padding:1em 2em;border:2px solid #424242}#posts{list-style:none;margin:0 0 0 2em}@media only screen and (max-width:1024px){#posts{margin:0}}#posts .post{max-width:100%;margin:0;padding:1em 2em;border:2px solid #424242}#posts .post+.tags{margin:0 0 1em 0}#posts .post+.post{margin:1em 0 0 0}#posts .tags{margin:0;padding:1em 2em;background:#424242}#posts .tags .tags__list{font-size:1.5em;display:flex;align-items:flex-start;align-content:flex-start;justify-content:flex-start;flex-wrap:wrap}#posts .tags .tags__list .tags__tag{padding:0 .5em}.header{display:block;background:#333 contain url({HeaderImage})}.footer{display:flex;flex-direction:column;align-items:center}.pagination{font-size:1.5em}.pagination ul{display:flex;justify-content:space-around;list-style:none}.pagination ul li{padding:1em .5em}
 </style>
   <!-- endinject -->
   <!-- Custom CSS starts here -->
@@ -65,28 +65,28 @@
     <!-- Posts -->
 
     <main class="main">
-      <ol id="posts">
+      <section id="posts">
         {block:Posts}
         {block:Text}
-        <li class="post">
+        <article class="post">
           <div class="post__text">
             {block:PostTitle}
             <h2><a href="{Permalink}">{PostTitle}</a></h2>
             {/block:PostTitle}
             {Body}
           </div>
-        </li>
+        </article>
         {/block:Text}{block:Photo}
-        <li class="post">
+        <article class="post">
           <div class="post__photo">
             <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
             {block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Photo}{block:Panorama}
-        <li class="post">
+        <article class="post">
           <div class="post__panorama">
             {LinkOpenTag}
             <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
@@ -94,35 +94,35 @@
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Panorama}{block:Photoset}
-        <li class="post">
+        <article class="post">
           <div class="post__photoset">
             {Photoset-500}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Photoset}{block:Quote}
-        <li class="post">
+        <article class="post">
           <div class="post__quote">
             "{Quote}"
             {block:Source}
             <div class="source">{Source}</div>
             {/block:Source}
           </div>
-        </li>
+        </article>
         {/block:Quote}{block:Link}
-        <li class="post">
+        <article class="post">
           <div class="post__link">
             <a href="{URL}" class="link" {Target}>{Name}</a>
             {block:Description}
             <div class="post__description">{Description}</div>
             {/block:Description}
           </div>
-        </li>
+        </article>
         {/block:Link}{block:Chat}
-        <li class="post">
+        <article class="post">
           <div class="post__chat">
             {block:PostTitle}
             <h2><a href="{Permalink}">{Title}</a></h2>
@@ -137,26 +137,26 @@
               {/block:Lines}
             </ul>
           </div>
-        </li>
+        </article>
         {/block:Chat}{block:Video}
-        <li class="post">
+        <article class="post">
           <div class="post__video">
             {Video-500}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Video}{block:Audio}
-        <li class="post">
+        <article class="post">
           <div class="post__audio">
             {AudioEmbed}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Audio}
         {block:HasTags}
-        <li class="tags">
+        <article class="tags">
           <ul class="tags__list">
             {block:Tags}
             <li class="tags__tag">
@@ -164,10 +164,10 @@
             </li>
             {/block:Tags}
           </ul>
-        </li>
+        </article>
         {/block:HasTags}
         {/block:Posts}
-      </ol>
+      </section>
     </main>
   </div>
 

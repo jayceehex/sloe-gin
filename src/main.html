@@ -63,28 +63,28 @@
     <!-- Posts -->
 
     <main class="main">
-      <ol id="posts">
+      <section id="posts">
         {block:Posts}
         {block:Text}
-        <li class="post">
+        <article class="post">
           <div class="post__text">
             {block:PostTitle}
             <h2><a href="{Permalink}">{PostTitle}</a></h2>
             {/block:PostTitle}
             {Body}
           </div>
-        </li>
+        </article>
         {/block:Text}{block:Photo}
-        <li class="post">
+        <article class="post">
           <div class="post__photo">
             <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
             {block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Photo}{block:Panorama}
-        <li class="post">
+        <article class="post">
           <div class="post__panorama">
             {LinkOpenTag}
             <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}" />
@@ -92,35 +92,35 @@
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Panorama}{block:Photoset}
-        <li class="post">
+        <article class="post">
           <div class="post__photoset">
             {Photoset-500}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Photoset}{block:Quote}
-        <li class="post">
+        <article class="post">
           <div class="post__quote">
             "{Quote}"
             {block:Source}
             <div class="source">{Source}</div>
             {/block:Source}
           </div>
-        </li>
+        </article>
         {/block:Quote}{block:Link}
-        <li class="post">
+        <article class="post">
           <div class="post__link">
             <a href="{URL}" class="link" {Target}>{Name}</a>
             {block:Description}
             <div class="post__description">{Description}</div>
             {/block:Description}
           </div>
-        </li>
+        </article>
         {/block:Link}{block:Chat}
-        <li class="post">
+        <article class="post">
           <div class="post__chat">
             {block:PostTitle}
             <h2><a href="{Permalink}">{Title}</a></h2>
@@ -135,26 +135,26 @@
               {/block:Lines}
             </ul>
           </div>
-        </li>
+        </article>
         {/block:Chat}{block:Video}
-        <li class="post">
+        <article class="post">
           <div class="post__video">
             {Video-500}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Video}{block:Audio}
-        <li class="post">
+        <article class="post">
           <div class="post__audio">
             {AudioEmbed}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
-        </li>
+        </article>
         {/block:Audio}
         {block:HasTags}
-        <li class="tags">
+        <article class="tags">
           <ul class="tags__list">
             {block:Tags}
             <li class="tags__tag">
@@ -162,10 +162,10 @@
             </li>
             {/block:Tags}
           </ul>
-        </li>
+        </article>
         {/block:HasTags}
         {/block:Posts}
-      </ol>
+      </section>
     </main>
   </div>
 
