@@ -77,7 +77,7 @@
         {/block:Text}{block:Photo}
         <article class="post">
           <div class="post__photo">
-            <img src="{PhotoURL-500}" alt="{PhotoAlt}" />
+            <img src="{PhotoURL}" alt="{PhotoAlt}" />
             {block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
@@ -96,7 +96,7 @@
         {/block:Panorama}{block:Photoset}
         <article class="post">
           <div class="post__photoset">
-            {Photoset-500}{block:Caption}
+            {Photoset}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>
@@ -139,7 +139,7 @@
         {/block:Chat}{block:Video}
         <article class="post">
           <div class="post__video">
-            {Video-500}{block:Caption}
+            {Video}{block:Caption}
             <div class="post__caption">{Caption}</div>
             {/block:Caption}
           </div>

@@ -7,7 +7,10 @@ body {
 }
 
 main {
-	max-width: 38rem;
+  max-width: 38rem;
+  @include narrowScreenLayout {
+    max-width: 100%;
+  }
 }
 
 a {
@@ -33,22 +36,33 @@ blockquote {
 }
 
 .container {
-	display: flex;
+	@include flex;
 	align-items: flex-start;
-	padding: 1.5rem;
-	@media only screen and (max-width: 1024px) {
-		flex-direction: column;
+  padding: 1.5rem;
+  @include narrowScreenLayout {
+    flex-direction: column;
 		align-items: stretch;
 		padding: 1.5rem 0.5rem;
-	}
+  }
 }
 
 .index-page {}
 
 .sidebar {
+  @include flex;
+  flex-direction: column;
+  align-items: center;
 	padding: $post-padding-y $post-padding-x;
-	border: 2px solid $background-color-light;
+  border: 2px solid $background-color-light;
+  width: 20%;
+  margin: 0px 0px $post-padding-y 0px;
+  @include narrowScreenLayout {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
   .my-avatar {
+    width: 5em;
   }
   .blog-title {
   }
@@ -63,9 +77,10 @@ blockquote {
 #posts {
 	list-style: none;
 	margin: 0px 0px 0px $post-padding-x;
-	@media only screen and (max-width: 1024px) {
-		margin: 0px;
-	}
+  @include narrowScreenLayout {
+    margin: 0px;
+    max-width: 100%;
+  }
   .post {
 		max-width: 100%;
 		margin: 0px;
@@ -92,8 +107,8 @@ blockquote {
 		padding: $post-padding-y $post-padding-x;
 		background: $background-color-light;
 		.tags__list {
+			@include flex;
 			font-size: 1.5em;
-			display: flex;
 			align-items: flex-start;
 			align-content: flex-start;
 			justify-content: flex-start;
@@ -111,7 +126,7 @@ blockquote {
 }
 
 .footer {
-  display: flex;
+  @include flex;
   flex-direction: column;
   align-items: center;
 }
@@ -119,7 +134,7 @@ blockquote {
 .pagination {
   font-size: 1.5em;
   ul {
-    display: flex;
+    @include flex;
     justify-content: space-around;
     list-style: none;
     li {

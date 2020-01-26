@@ -22,3 +22,24 @@ $inline-padding-x: 0.5em;
 $inline-padding-y: 1em;
 $background-color-light: $background-color + 15;
 $background-color-dark: $background-color - 15;
+
+// Mixins
+
+@mixin flex {
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin narrowScreenLayout() {
+  @media only screen
+  and (max-width: 1028px) {
+    @content;
+  }
+}
+
+@mixin wideScreenLayout() {
+  @media only screen
+  and (min-width: 1680px) {
+    @content;
+  }
+}
